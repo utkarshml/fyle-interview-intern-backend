@@ -23,3 +23,7 @@ def assert_valid(cond, msg='BAD_REQUEST'):
 def assert_found(_obj, msg='NOT_FOUND'):
     if _obj is None:
         base_assert(404, msg)
+
+def assert_isDrafted(_obj, msg='Assignment is Drafted , It can not be change'):
+    if _obj.state == 'DRAFT':
+        base_assert(400, msg)
